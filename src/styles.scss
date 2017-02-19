@@ -1,8 +1,14 @@
+$color: #25233A;
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #25233A;
+  background-color: $color;
   color: white;
 }
 
@@ -64,11 +70,33 @@ body {
       justify-content: center;
       background-color: rgba(0, 0, 0, 0.4);
       button {
+        display: block;
+        margin: 0 auto;
         border: none;
         background-color: orange;
         color: white;
+        padding: 6px 10px;
+        font-size: 16px;
+        border-radius: 4px;
+      }
+      .gameover-popup {
+        background: white;
+        color: $color;
         padding: 10px;
-        font-size: 18px;
+        border-radius: 4px;
+        text-align: center;
+        input {
+          height: 30px;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        span {
+          float: right;
+          font-size: 13px;
+          color: #ccc;
+          font-weight: bold;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -106,10 +134,11 @@ body {
     color: red;
   }
   .scoreboard {
-    color: #25233A;
+    color: $color;
     background-color: white;
     width: 224px;
     ul {
+      list-style: none;
       li:not(:last-child) {
         padding-bottom: 15px;
       }
