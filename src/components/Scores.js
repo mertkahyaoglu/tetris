@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import _ from 'underscore';
 
-import { fetchScores } from '../actions';
+import { fetchScores } from '../actions/scores';
 
 class Scores extends Component {
 
@@ -14,13 +14,12 @@ class Scores extends Component {
 
   render() {
     const { scores, isFetching, error } = this.props;
-
     let children;
     if (isFetching) {
       children = 'Loading...';
     } else if (scores.length) {
       children = _.map(scores, (score, i) =>
-        <li key={i}>{score.username}: <strong>{score.score}</strong></li>
+        <li key={i}>{i+1}. {score.username}: <strong>{score.score}</strong></li>
       );
     } else if (scores.length == 0) {
       children = 'Be the first one!';
