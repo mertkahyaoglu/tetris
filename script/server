@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+cd ./server || exit
+pip install -r requirements.txt
+python server.py
