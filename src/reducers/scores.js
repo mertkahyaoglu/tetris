@@ -2,6 +2,8 @@ import {
   FETCH_SCORES_REQUEST,
   FETCH_SCORES_SUCCESS,
   FETCH_SCORES_ERROR,
+  SEND_SCORE_SUCCESS,
+  SEND_SCORE_ERROR,
 } from '../constants/actionTypes';
 
 export default function scores(state = {
@@ -24,6 +26,14 @@ export default function scores(state = {
         isFetching: false,
         scores: [],
         error: action.error
+      });
+    case SEND_SCORE_SUCCESS:
+      return Object.assign({}, state, {
+
+      });
+    case SEND_SCORE_ERROR:
+      return Object.assign({}, state, {
+
       });
     default:
       return state;
