@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #25233A;
+  color: white;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .top {
+    width: 224px;
+    text-align: center;
+    h1 {
+      text-align: center;
+      margin: 0;
+      padding: 10px 0;
+    }
+    ul {
+      background-color: #6596C8;
+      list-style: none;
+      margin: 15px 0;
+      padding: 15px 0;
+      display: inline-block;
+      width: 100%;
+      li {
+        float: left;
+        width: 50%;
+      }
+    }
+  }
+  .game {
+    display: inline-block;
+    .board {
+      background-color: #eee;
+      position: relative;
+      overflow: hidden;
+      .row {
+        display: flex;
+      }
+    }
+  }
+  .info {
+    width: 224px;
+    padding: 15px 0;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        padding-bottom: 15px;
+      }
+      .next {
+        position: relative;
+        .next-tetromino {
+          display: flex;
+          flex-direction: column;
+          & > div {
+            right: 0;
+          }
+          .row {
+            display: flex;
+            div {
+              width: 10px !important;
+              height: 10px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
