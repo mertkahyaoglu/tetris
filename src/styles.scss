@@ -10,7 +10,6 @@ body {
   display: flex;
   height: 100vh;
   flex: 1;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   .top {
@@ -22,26 +21,54 @@ body {
       padding: 10px 0;
     }
     ul {
-      background-color: #6596C8;
+      background-color: orange;
       list-style: none;
       margin: 15px 0;
-      padding: 15px 0;
+      padding: 0;
       display: inline-block;
       width: 100%;
       li {
         float: left;
         width: 50%;
+        &:hover {
+          background-color: darkorange;
+        }
+        a {
+          display: inline-block;
+          padding: 15px 0;
+          color: white;
+          text-decoration: none;
+        }
       }
     }
   }
   .game {
     display: inline-block;
+    position: relative;
     .board {
       background-color: #eee;
       position: relative;
       overflow: hidden;
       .row {
         display: flex;
+      }
+    }
+    .popup {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.4);
+      button {
+        border: none;
+        background-color: orange;
+        color: white;
+        padding: 10px;
+        font-size: 18px;
       }
     }
   }
@@ -52,7 +79,7 @@ body {
       list-style: none;
       padding: 0;
       margin: 0;
-      li {
+      li:not(:last-child) {
         padding-bottom: 15px;
       }
       .next {
@@ -72,6 +99,22 @@ body {
             }
           }
         }
+      }
+    }
+  }
+  .error {
+    color: red;
+  }
+  .scoreboard {
+    color: #25233A;
+    background-color: white;
+    width: 224px;
+    ul {
+      li:not(:last-child) {
+        padding-bottom: 15px;
+      }
+      strong {
+        color: darkorange;
       }
     }
   }
