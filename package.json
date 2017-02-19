@@ -24,6 +24,8 @@
   "author": "Mert Kahyaoğlu",
   "license": "MIT",
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.4",
     "object-assign": "4.1.0",
     "react": "15.4.1",
     "react-dom": "15.4.1",
@@ -70,6 +72,7 @@
     "postcss-loader": "1.2.1",
     "react-addons-test-utils": "15.4.1",
     "redux-immutable-state-invariant": "1.2.4",
+    "redux-logger": "^2.8.1",
     "replace": "0.3.0",
     "rimraf": "2.5.4",
     "sass-loader": "4.1.0",
