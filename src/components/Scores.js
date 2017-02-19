@@ -18,12 +18,14 @@ class Scores extends Component {
     let children;
     if (isFetching) {
       children = 'Loading...';
-    } else if (error) {
-      children = 'Error occured.';
-    } else {
-      children = _.map(scores, score =>
-        <li>{score.username}: <strong>{score.score}</strong></li>
+    } else if (scores.length) {
+      children = _.map(scores, (score, i) =>
+        <li key={i}>{score.username}: <strong>{score.score}</strong></li>
       );
+    } else if (scores.length == 0) {
+      children = 'Be the first one!';
+    } else {
+      children = 'Error occured.';
     }
 
     return (
