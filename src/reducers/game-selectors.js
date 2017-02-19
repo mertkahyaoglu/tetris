@@ -88,7 +88,9 @@ export const moveDown = (state, action) => {
     };
   } else if (newState.tetromino.position.y === 0) {
     // reach to top, game over
-    gameOver(newState);
+    clearInterval(newState.intervalID);
+    newState.gameOver = true;
+    newState.started = false;
   } else {
     // hit the bottom, generate new one
     newState = spawnTetromino(newState);
