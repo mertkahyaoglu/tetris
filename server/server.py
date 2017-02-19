@@ -1,16 +1,23 @@
-from flask import Flask
-from flask import jsonify
-from flask import request
+import os
+from flask import Flask, jsonify, request, send_from_directory
 from flask_pymongo import PyMongo
 from flask.ext.cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='public', static_url_path='')
 cors = CORS(app, resources={r"/tetris/*": {"origins": "*"}})
 
 app.config['MONGO_DBNAME'] = 'tetris'
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/tetris'
 
 mongo = PyMongo(app)
+
+@app.route('/')
+def serve_index():
+    return send_from_directory('public', 'index.html')
+
+@app.route('/<path:path>')
+def serve_static_files(path):
+    return send_from_directory('public', path)
 
 @app.route('/tetris/scores', methods=['GET'])
 def get_all_scores():
