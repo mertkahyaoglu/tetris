@@ -7,6 +7,7 @@ import Keys from '../constants/keys';
 import Board from './Board';
 import Tetromino from './Tetromino';
 import Popup from './Popup';
+import { sendScore } from '../actions/scores';
 import {
   startGame,
   moveDown,
@@ -14,8 +15,8 @@ import {
   moveLeft,
   rotateDown,
   rotateUp,
-  gameOver
-} from '../actions';
+  resetGameState
+} from '../actions/game';
 
 class Game extends Component {
 
@@ -28,15 +29,9 @@ class Game extends Component {
     window.addEventListener('keydown', this.handleKeyDown);
   }
 
-  componentWillReceiveProps(prevProps, prevState) {
-    if (prevProps.game.gameOver !== this.props.game.gameOver) {
-      // show modal
-    }
-  }
-
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown);
-    this.props.gameOver();
+    this.props.resetGameState();
   }
 
   handleKeyDown(e) {
@@ -60,7 +55,7 @@ class Game extends Component {
   }
 
   render() {
-    const { startGame, game } = this.props;
+    const { startGame, sendScore, game } = this.props;
     const { tetromino, board, rows, score, nextTetromino, started, gameOver } = game;
     return (
       <div className="container">
@@ -75,7 +70,11 @@ class Game extends Component {
           <Board board={board}>
             <Tetromino {...tetromino} />
           </Board>
-          <Popup type="start" visible={!started} onAction={startGame} />
+          <Popup
+            type={gameOver ? 'gameover' : 'start'}
+            visible={!started}
+            onStartClick={startGame}
+            onSendClick={sendScore} />
         </div>
         <div className="info">
           <ul>
@@ -107,7 +106,8 @@ Game.propTypes = {
   moveRight: PropTypes.func.isRequired,
   rotateDown: PropTypes.func.isRequired,
   rotateUp: PropTypes.func.isRequired,
-  gameOver: PropTypes.func.isRequired,
+  sendScore: PropTypes.func.isRequired,
+  resetGameState: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -121,7 +121,8 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   moveLeft,
   rotateDown,
   rotateUp,
-  gameOver
+  sendScore,
+  resetGameState
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
