@@ -80,6 +80,12 @@ class Game extends Component {
             <li>score : {score}</li>
             <li>rows : {rows}</li>
           </ul>
+          <hr/>
+          <ul>
+            <li>steer: <span>&larr;</span> , <span>&rarr;</span></li>
+            <li>rotate: <span>&uarr;</span> , <span>&darr;</span></li>
+            <li>down: <span>space</span></li>
+          </ul>
         </div>
       </div>
     );

@@ -61,7 +61,8 @@ body {
           display: flex;
           flex-direction: column;
           & > div {
-            right: 0;
+            top: -3px !important;
+            left: 60px !important;
           }
           .row {
             display: flex;
