@@ -4,7 +4,8 @@ import {
   MOVE_RIGHT,
   MOVE_LEFT,
   ROTATE_DOWN,
-  ROTATE_UP
+  ROTATE_UP,
+  GAME_OVER
 } from '../constants/actionTypes';
 
 import {
@@ -15,6 +16,7 @@ import {
   moveRight,
   rotateDown,
   rotateUp,
+  gameOver
 } from './selectors';
 
 export default function game(state = getInitialState(), action) {
@@ -31,6 +33,8 @@ export default function game(state = getInitialState(), action) {
         return rotateDown(state, action);
     case ROTATE_UP:
         return rotateUp(state, action);
+    case GAME_OVER:
+        return gameOver(state);
     default:
       return state;
   }

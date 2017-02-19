@@ -28,7 +28,8 @@ export const getInitialState = () => {
     intervalID: null,
     score: 0,
     rows: 0,
-    gameOver: false
+    gameOver: false,
+    started: false
   };
 };
 
@@ -37,24 +38,26 @@ export const startGame = (state, action) => {
   if (state.intervalID) {
     clearInterval(state.intervalID);
   }
+  const newState = state.gameOver ? getInitialState() : state;
   return {
-    ...getInitialState(),
-    intervalID: action.intervalID
+    ...newState,
+    intervalID: action.intervalID,
+    started: true
   };
 };
 
 // returns state with the newly positioned tetromino
-function spawnTetromino(state) {
+const spawnTetromino = (state) => {
   const newState = cloneDeep(state);
   const cells = getCurrentTetrominoCells(newState);
   _.each(cells, cell => {
     newState.board[cell.y][cell.x] = newState.tetromino.color;
   });
   return newState;
-}
+};
 
 // updates score and deletes full rows
-function updateScore(state) {
+const updateScore = (state) => {
   const newState = cloneDeep(state);
   const board = newState.board.filter(row => row.some(cell => cell === null));
   newState.board = board;
@@ -65,7 +68,15 @@ function updateScore(state) {
     _.times(numDelRows, () => _.times(Board.width, () => null))
   );
   return newState;
-}
+};
+
+export const gameOver = (state) => {
+  let newState = cloneDeep(state);
+  clearInterval(newState.intervalID);
+  newState.gameOver = true;
+  newState.started = false;
+  return newState;
+};
 
 export const moveDown = (state, action) => {
   let newState = cloneDeep(state);
@@ -77,8 +88,7 @@ export const moveDown = (state, action) => {
     };
   } else if (newState.tetromino.position.y === 0) {
     // reach to top, game over
-    clearInterval(newState.intervalID);
-    newState.gameOver = true;
+    gameOver(newState);
   } else {
     // hit the bottom, generate new one
     newState = spawnTetromino(newState);
