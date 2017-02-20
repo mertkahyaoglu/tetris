@@ -1,0 +1,5 @@
+/* istanbul ignore next */'use strict';describe('must have at least one test', function () {
+  it('should have a header with \'alt-header\' class', function () {
+    expect(true).toBe(true);
+  });
+});

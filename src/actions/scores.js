@@ -9,7 +9,7 @@ import {
 export const fetchScores = () => {
   return (dispatch, getState) => {
     dispatch({ type: FETCH_SCORES_REQUEST });
-    return fetch('http://127.0.0.1:5000/tetris/scores')
+    return fetch('/tetris/scores')
       .then(res => res.json())
       .then(scores => dispatch({
         type: FETCH_SCORES_SUCCESS,
@@ -25,7 +25,7 @@ export const fetchScores = () => {
 export const sendScore = (username) => {
   return (dispatch, getState) => {
     const score = getState().game.score;
-    return fetch('http://127.0.0.1:5000/tetris/save_score', {
+    return fetch('/tetris/save_score', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, text/plain, */*',

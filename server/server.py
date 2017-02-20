@@ -33,6 +33,10 @@ def add_score():
     scores = mongo.db.scores
     username = request.json['username']
     score = request.json['score']
+    try:
+        score = int(score)
+    except ValueError:
+        score = 0
     sorted_scores = scores.find().sort('score', -1)
 
     score_list = []
@@ -54,4 +58,4 @@ def add_score():
     else:
         return jsonify({'message' : 'did not insert'})
 if __name__ == '__main__':
-    app.run(debug=True)
+	app.run(host='0.0.0.0', port=80,threaded=True)
