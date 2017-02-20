@@ -138,6 +138,8 @@ body {
     background-color: white;
     width: 224px;
     ul {
+      padding: 10px;
+      margin: 0;
       list-style: none;
       li:not(:last-child) {
         padding-bottom: 15px;
