@@ -33,6 +33,10 @@ def add_score():
     scores = mongo.db.scores
     username = request.json['username']
     score = request.json['score']
+    try:
+        score = int(score)
+    except ValueError:
+        score = 0
     sorted_scores = scores.find().sort('score', -1)
 
     score_list = []
