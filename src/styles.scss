@@ -104,6 +104,12 @@ body {
     width: 224px;
     padding: 15px 0;
     ul {
+      &.game-info {
+        float: left;
+      }
+      &.control-info {
+        float: right;
+      }
       list-style: none;
       padding: 0;
       margin: 0;

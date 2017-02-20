@@ -77,7 +77,7 @@ class Game extends Component {
             onSendClick={sendScore} />
         </div>
         <div className="info">
-          <ul>
+          <ul className="game-info">
             <li className="next">next :
               <div className="next-tetromino">
                 <Tetromino {...nextTetromino} />
@@ -86,8 +86,7 @@ class Game extends Component {
             <li>score : {score}</li>
             <li>rows : {rows}</li>
           </ul>
-          <hr/>
-          <ul>
+          <ul className="control-info">
             <li>steer: <span>&larr;</span> , <span>&rarr;</span></li>
             <li>rotate: <span>&uarr;</span> , <span>&darr;</span></li>
             <li>down: <span>space</span></li>
