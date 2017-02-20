@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from flask.ext.cors import CORS
 
 app = Flask(__name__, static_folder='public', static_url_path='')
-cors = CORS(app, resources={r"/tetris/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/tetris/*": {"origins": "http://ec2-35-160-20-129.us-west-2.compute.amazonaws.com/"}})
 
 app.config['MONGO_DBNAME'] = 'tetris'
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/tetris'
