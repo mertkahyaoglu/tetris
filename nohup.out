@@ -1,5 +1,0 @@
-server//server.py: 1: server//server.py: import: not found
-from: can't read /var/mail/flask
-from: can't read /var/mail/flask_pymongo
-from: can't read /var/mail/flask.ext.cors
-server//server.py: 6: server//server.py: Syntax error: "(" unexpected

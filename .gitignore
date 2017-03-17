@@ -1,6 +1,9 @@
 # Logs
 logs
 *.log*
+*.out
+perf/
+server/public
 
 # Runtime data
 pids
