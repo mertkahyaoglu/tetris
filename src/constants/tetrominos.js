@@ -4,7 +4,7 @@ const Tetrominos = {
       [1, 1],
       [1, 1]
     ],
-    color: '#2DFDFF'
+    color: '#bf80ff'
   },
   I: {
     shape: [
