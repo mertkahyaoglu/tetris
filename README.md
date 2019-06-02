@@ -1,4 +1,4 @@
-Tetris - [play](http://ec2-35-160-20-129.us-west-2.compute.amazonaws.com/)
+Tetris
 ------
 
 > Classic tetris game built with MongoDB, Flask and React.js
