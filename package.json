@@ -13,7 +13,7 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "underscore": "^1.10.2"
+    "underscore": "^1.12.1"
   },
   "scripts": {
     "start": "react-scripts start",
